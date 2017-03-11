@@ -6,6 +6,7 @@ ng new ng2-app --prefix=app --ng4 --style=scss --skip-install
 npm install bootstrap@next --save
 npm install jquery --save
 npm install tether --save
+npm install font-awesome --save
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
