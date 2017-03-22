@@ -2,6 +2,7 @@ import { IEvent } from './event';
 import { Observable } from 'rxjs/Observable';
 import { HomeService } from './app.service';
 import { Component, OnInit } from '@angular/core';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-root',
@@ -17,8 +18,9 @@ export class AppComponent implements OnInit {
   title = 'app works!';
 
   ngOnInit(): void {
-    this.homeService.getEventByNumber(12).subscribe(console.log);
+    // this.homeService.getEventByNumber(12).subscribe(console.log);
 
-    this.homeService.getEvent().subscribe(console.log);
+    // this.homeService.getEvent().subscribe(console.log);
+    
   }
 }
