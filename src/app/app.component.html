@@ -3,3 +3,9 @@
 </h1>
 
 <button class="btn btn-primary">Test Button</button>
+
+
+<button (click)="increment()">Increment</button>
+<div>Current Count: {{ counter | async }}</div>
+<button (click)="decrement()">Decrement</button>
+<button (click)="reset()">Reset Counter</button>
