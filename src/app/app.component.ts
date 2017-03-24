@@ -1,4 +1,3 @@
-import { IEvent } from './event';
 import { Observable } from 'rxjs/Observable';
 import { HomeService } from './app.service';
 import { Component, OnInit } from '@angular/core';
