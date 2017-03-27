@@ -1,6 +1,8 @@
+import { StoreModule } from '@ngrx/store';
 import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
+import { counterReducer } from './../store/counter';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -8,6 +10,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [StoreModule.provideStore({ counter: counterReducer })]
     }).compileComponents();
   }));
 
