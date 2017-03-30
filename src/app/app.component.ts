@@ -33,15 +33,15 @@ export class AppComponent implements OnInit {
 
   counter: Observable<number>;
 
-  click$ = new Subject();
+  click$ = new Subject().mapTo(HOUR);
+  seconds$ = Observable.interval(1000).mapTo(SECOND)
   clock;
 
-  constructor(private store: Store<AppState>, private store1: Store<DateState>) {
+  constructor(private store: Store<any>) {
     this.counter = store.select('counter');
-    this.clock = store1.select('clock');
+    this.clock = store.select('clock');
 
-    this.clock = Observable
-      .merge(this.click$.mapTo(HOUR), Observable.interval(1000).mapTo(SECOND))
+    this.clock = Observable.merge(this.click$, this.seconds$)
       .startWith(new Date().toString())
       .scan((acc, value, index) => {
         const date = new Date(acc);
@@ -53,10 +53,14 @@ export class AppComponent implements OnInit {
         }
         return date;
       });
+    /*
+    .subscribe((type) => {
+      store1.dispatch({type, payload:1});
+    });*/
   }
 
   increment() {
-    this.store.dispatch({ type: INCREMENT, payload: 1});
+    this.store.dispatch({ type: INCREMENT, payload: 1 });
   }
 
   decrement() {
