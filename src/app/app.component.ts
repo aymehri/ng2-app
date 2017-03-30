@@ -6,6 +6,7 @@ import * as _ from 'lodash';
 
 import { Store } from '@ngrx/store';
 import { INCREMENT, DECREMENT, RESET } from './../store/counter';
+import { HOUR, SECOND } from './../store/clock';
 
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/observable/merge';
@@ -33,16 +34,17 @@ export class AppComponent implements OnInit {
 
   constructor(private store: Store<AppState>) {
     this.counter = store.select('counter');
+    this.clock = store.select('clock');
 
     this.clock = Observable
-      .merge(this.click$.mapTo('hour'), Observable.interval(1000).mapTo('second'))
+      .merge(this.click$.mapTo(HOUR), Observable.interval(1000).mapTo(SECOND))
       .startWith(new Date().toString())
       .scan((acc, value, index) => {
         const date = new Date(acc);
-        if (value === 'second') {
+        if (value === SECOND) {
           date.setSeconds(date.getSeconds() + 1);
         }
-        if (value === 'hour') {
+        if (value === HOUR) {
           date.setHours(date.getHours() + 1);
         }
         return date;

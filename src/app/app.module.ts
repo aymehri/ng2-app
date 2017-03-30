@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './../store/counter';
+import { clockReducer } from './../store/clock';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,10 @@ import { counterReducer } from './../store/counter';
     BrowserModule,
     FormsModule,
     HttpModule,
-    StoreModule.provideStore({ counter: counterReducer })
+    StoreModule.provideStore(
+      { counter: counterReducer },
+      { clock: clockReducer }
+    )
   ],
   providers: [HomeService],
   bootstrap: [AppComponent]
