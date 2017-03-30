@@ -9,3 +9,7 @@
 <div>Current Count: {{ counter | async }}</div>
 <button (click)="decrement()">Decrement</button>
 <button (click)="reset()">Reset Counter</button>
+
+
+<button (click)="click$.next()">Update</button>
+<h1>{{clock | async | date:'EEEE, d MMMM y, j:m:s'}}</h1>
