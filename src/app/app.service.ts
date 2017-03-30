@@ -11,7 +11,7 @@ import 'rxjs/add/observable/throw';
 export class HomeService {
 
   constructor(private _http: Http) { }
-  
+
   // sample method from angular doc
   private handleError(error: Response) {
     // in a real world app, we may send the server to some remote logging infrastructureArray

@@ -18,6 +18,10 @@ interface AppState {
   counter: number;
 }
 
+interface DateState {
+  clock: Date;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -32,9 +36,9 @@ export class AppComponent implements OnInit {
   click$ = new Subject();
   clock;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private store1: Store<DateState>) {
     this.counter = store.select('counter');
-    this.clock = store.select('clock');
+    this.clock = store1.select('clock');
 
     this.clock = Observable
       .merge(this.click$.mapTo(HOUR), Observable.interval(1000).mapTo(SECOND))
@@ -52,20 +56,17 @@ export class AppComponent implements OnInit {
   }
 
   increment() {
-    this.store.dispatch({ type: INCREMENT });
+    this.store.dispatch({ type: INCREMENT, payload: 1});
   }
 
   decrement() {
-    this.store.dispatch({ type: DECREMENT });
+    this.store.dispatch({ type: DECREMENT, payload: 1 });
   }
 
   reset() {
-    this.store.dispatch({ type: RESET });
+    this.store.dispatch({ type: RESET, payload: 0 });
   }
 
   ngOnInit(): void {
-    // this.homeService.getEventByNumber(12).subscribe(console.log);
-
-    // this.homeService.getEvent().subscribe(console.log);
   }
 }
