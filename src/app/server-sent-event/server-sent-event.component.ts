@@ -1,3 +1,4 @@
+import { Subject } from 'rxjs/Subject';
 import { Component, OnInit, NgZone } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
@@ -26,13 +27,26 @@ export class ServerSentEventComponent implements OnInit {
         eventSource.close();
       };
     });
-
-    observable.subscribe({
-      next: guid => {
-        this.zone.run(() => this.someStrings.push(guid));
+    //const observable = this.createChangeStream();
+    observable.subscribe(
+      next => {
+        this.zone.run(() => this.someStrings.push(next));
       },
-      error: err => console.error('something wrong occurred: ' + err)
-    });
+      error => console.error('something wrong occurred: ' + error)
+    );
+  }
+
+  public createChangeStream(): Observable<any> {
+    const subject = new Subject();
+    if (typeof EventSource !== 'undefined') {
+      const emit = (msg: any) => subject.next(JSON.parse(msg.data));
+      const source = new EventSource('api/events');
+      source.addEventListener('data', emit);
+      source.onerror = emit;
+    } else {
+      console.warn('SDK Builder: EventSource is not supported');
+    }
+    return subject.asObservable();
   }
 
 }
