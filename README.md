@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.1.
 ```sh
-ng new ng2-app --prefix=app --style=scss --skip-install
+ng new ng2-app --prefix=app --style=scss --routing --skip-install
 npm install bootstrap@next --save
 npm install jquery --save
 npm install tether --save
@@ -10,6 +10,33 @@ npm install font-awesome --save
 npm install lodash --save
 npm install @types/lodash --save-dev
 npm install @ngrx/core @ngrx/store --save
+
+//to generate new module
+ng g m admin --routing
+ng g c admin
+ng g c admin/email-blast
+ng g c admin/users
+ng g s admin/users-data -ve Emulated -cd OnPush
+ng g guard admin
+ng g c login -m login/login.module
+
+//directive
+ng g d search-box -d
+
+//pipe
+ng g p shard/init-caps
+
+
+ng set defaults.styleExt scss -g
+ng lint --fix
+//build
+npm i source-map-explorer --save-dev
+./nodes_modules/.bin/source-map/explorer dist/main.bundle.js
+./nodes_modules/.bin/source-map/explorer dist/vendor.bundle.js
+
+
+//test
+ng test -cc -sr
 ```
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
