@@ -38,6 +38,27 @@ npm i source-map-explorer --save-dev
 //test
 ng test -cc -sr
 ```
+
+```sh
+// I will try to provide example with following operator and observable
+map
+filter 
+scan
+mergeMap
+switchMap
+combileLatest
+concat
+do
+
+takeUntil
+take
+first
+takeWhile
+switchMapswitchMap
+
+timer fired twice, we fix that with adding share
+```
+
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
