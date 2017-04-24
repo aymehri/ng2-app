@@ -1,4 +1,19 @@
+import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
+
+import "rxjs/add/observable/interval";
+import "rxjs/add/operator/take";
+import "rxjs/add/operator/bufferCount"
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mapTo';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/share';
+import 'rxjs/add/operator/catch';
+
+import 'rxjs/add/observable/timer';
+import 'rxjs/add/observable/merge';
+import 'rxjs/add/observable/empty';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +22,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  title = 'Home Page';
 
-  ngOnInit() {
+  source$ = Observable.timer(1000)
+    .do(() => console.log('test'))
+    .mapTo({ foo: 1, bar: 2 }).share();
+
+  // i don't understand why this example don't work
+  //foo$ = this.source$.map(x => x.foo);
+  //bar$ = this.source$.map(x => x.bar);
+
+
+  constructor() { }
+  ngOnInit() { }
+
+  get foo$() {
+    return this.source$.map(x => x.foo);
   }
 
+  get bar$() {
+    return this.source$.map(x => x.bar);
+  }
 }
