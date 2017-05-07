@@ -9,7 +9,7 @@ npm install tether --save
 npm install font-awesome --save
 npm install lodash --save
 npm install @types/lodash --save-dev
-npm install @ngrx/core @ngrx/store --save
+npm install @ngrx/core @ngrx/store @ngrx/effects --save
 
 //to generate new module
 ng g m admin --routing
