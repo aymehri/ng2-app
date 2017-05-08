@@ -1,6 +1,6 @@
 # Ng2App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.1.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 ```sh
 ng new ng2-app --prefix=app --style=scss --routing --skip-install
 npm install bootstrap@next --save
@@ -10,6 +10,8 @@ npm install font-awesome --save
 npm install lodash --save
 npm install @types/lodash --save-dev
 npm install @ngrx/core @ngrx/store @ngrx/effects --save
+npm install @ngrx/db @ngrx/router-store @ngrx/store-devtools --save
+npm install ngrx-store-freeze --dev-save
 
 //to generate new module
 ng g m admin --routing
