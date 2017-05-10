@@ -27,7 +27,7 @@ export class ServerSentEventComponent implements OnInit {
         eventSource.close();
       };
     });
-    //const observable = this.createChangeStream();
+    // const observable = this.createChangeStream();
     observable.subscribe(
       next => {
         this.zone.run(() => this.someStrings.push(next));

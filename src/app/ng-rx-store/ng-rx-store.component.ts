@@ -30,7 +30,7 @@ export class NgRxStoreComponent implements OnInit {
   counter: Observable<number>;
 
   click$ = new Subject().mapTo(HOUR);
-  seconds$ = Observable.interval(1000).mapTo(SECOND)
+  seconds$ = Observable.interval(1000).mapTo(SECOND);
   clock;
 
   constructor(private store: Store<any>) {

@@ -2,9 +2,9 @@ import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 
 
-import "rxjs/add/observable/interval";
-import "rxjs/add/operator/take";
-import "rxjs/add/operator/bufferCount"
+import 'rxjs/add/observable/interval';
+import 'rxjs/add/operator/take';
+import 'rxjs/add/operator/bufferCount';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mapTo';
 import 'rxjs/add/operator/do';

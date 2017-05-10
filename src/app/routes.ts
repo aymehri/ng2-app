@@ -15,7 +15,11 @@ export const routes: Routes = [
   },
   {
     path: 'sse',
-    loadChildren: 'app/server-sent-event/server-sent-event.module#ServerSentEventModule'
+    loadChildren: './server-sent-event/server-sent-event.module#ServerSentEventModule'
+  },
+  {
+    path: 'combinelatest',
+    loadChildren: './combine-latest/combine-latest.module#CombineLatestModule'
   },
   {
     path: '**',
