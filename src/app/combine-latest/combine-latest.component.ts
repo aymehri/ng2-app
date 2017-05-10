@@ -15,7 +15,8 @@ export class CombineLatestComponent implements OnInit {
   nbB$ = new Subject<number>();
 
   combineTwo$ = Observable.combineLatest(this.nbA$, this.nbB$)
-                          .map(cells => cells[0] + cells[1]);
+                          .map(cells => cells[0] + cells[1])
+                          .startWith(0);
 
   constructor() { }
 
