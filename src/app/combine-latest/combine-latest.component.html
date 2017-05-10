@@ -1,3 +1,6 @@
 <p>
   combine-latest works!
+  <input id="a" (keyup)="nbA$.next(1*$event.target.value)" type="text"/>
+  <input id="b" (keyup)="nbB$.next(1*$event.target.value)" type="text"/>
+  {{combineTwo$ | async}}
 </p>
