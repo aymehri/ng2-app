@@ -74,11 +74,30 @@ export class CoreReactiveImportantComponent implements OnInit {
       .take(3)
       .concat(Observable.range(10, 3))
       .subscribe(createSubscriber('concat1'));*/
-
+    /*
     Observable.concat(
       Observable.interval(1000).map(i => `${i} seconds`).take(3),
       Observable.interval(500).map(i => `${i} half seconds`).take(3)
     ).subscribe(createSubscriber('concat2'));
+    */
+
+    // map
+    /*
+     Observable.interval(1000)
+              .take(3)
+              .map(a => a * a)
+              .subscribe(createSubscriber('map'));
+    */
+
+    // mergeMap
+    Observable.range(2, 3)
+              .mergeMap(i => Observable.timer(i * 2000).map(() => `After ${i * 2} seconds`))
+              .subscribe(createSubscriber('mergeMap'));
+
+    // switchMap => don't keep the last value, just switch directly
+
+    // reduce scan :
+
 
 
   }
