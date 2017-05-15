@@ -30,6 +30,10 @@ export const routes: Routes = [
     loadChildren: './core-reactive-important/core-reactive-important.module#CoreReactiveImportantModule'
   },
   {
+    path: 'zabatista',
+    loadChildren: './zabatista/zabatista.module#ZabatistaModule'
+  },
+  {
     path: '**',
     component: NotFoundPageComponent
   }

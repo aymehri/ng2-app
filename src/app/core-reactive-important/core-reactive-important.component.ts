@@ -16,7 +16,7 @@ import 'rxjs/add/observable/concat';
 import 'rxjs/add/operator/publish';
 import 'rxjs/add/operator/publishLast';
 import 'rxjs/add/operator/publishReplay';
-import 'rxjs/add/operator/shareReplay';
+
 import 'rxjs/add/operator/finally';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/merge';

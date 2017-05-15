@@ -15,7 +15,6 @@ import 'rxjs/add/observable/range';
 import 'rxjs/add/operator/publish';
 import 'rxjs/add/operator/publishLast';
 import 'rxjs/add/operator/publishReplay';
-import 'rxjs/add/operator/shareReplay';
 
 @Component({
   selector: 'app-core-reactive',
