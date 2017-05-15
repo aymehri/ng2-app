@@ -22,6 +22,10 @@ export const routes: Routes = [
     loadChildren: './combine-latest/combine-latest.module#CombineLatestModule'
   },
   {
+    path: 'corereactive',
+    loadChildren: './core-reactive/core-reactive.module#CoreReactiveModule'
+  },
+  {
     path: '**',
     component: NotFoundPageComponent
   }

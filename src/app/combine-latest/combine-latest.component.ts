@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
+
 import 'rxjs/add/observable/combineLatest';
-import 'rxjs/add/observable/of';
 
 @Component({
   selector: 'app-combine-latest',
@@ -16,12 +16,12 @@ export class CombineLatestComponent implements OnInit {
   nbC$ = new Subject<number>();
 
   combineTwo$ = Observable.combineLatest(this.nbA$, this.nbB$)
-                          .map(cells => cells[0] + cells[1])
-                          .startWith(0);
+    .map(vals => vals[0] + vals[1])
+    .startWith(0);
 
   result$ = Observable.combineLatest(this.combineTwo$, this.nbC$)
-                          .map(cells => cells[0] * cells[1])
-                          .startWith(0);
+    .map(vals => vals[0] * vals[1])
+    .startWith(0);
 
   constructor() { }
 
