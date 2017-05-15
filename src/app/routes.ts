@@ -26,6 +26,10 @@ export const routes: Routes = [
     loadChildren: './core-reactive/core-reactive.module#CoreReactiveModule'
   },
   {
+    path: 'corereactiveimportant',
+    loadChildren: './core-reactive-important/core-reactive-important.module#CoreReactiveImportantModule'
+  },
+  {
     path: '**',
     component: NotFoundPageComponent
   }
