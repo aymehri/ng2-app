@@ -14,10 +14,10 @@ node {
     }
 
     stage('frontend tests') {
-        sh "ng test -sr"
+        sh "npm run test-sr"
     }
 
     stage('packaging') {
-        sh "ng build --prod"
+        sh "npm run build-prod"
     }
 }
