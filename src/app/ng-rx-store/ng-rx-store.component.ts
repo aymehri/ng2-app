@@ -29,7 +29,8 @@ export class NgRxStoreComponent implements OnInit {
 
   counter: Observable<number>;
 
-  click$ = new Subject().mapTo(HOUR);
+  click$ = new Subject();
+  clickObservable$ = this.click$.mapTo(HOUR);
   seconds$ = Observable.interval(1000).mapTo(SECOND);
   clock;
 
@@ -37,7 +38,7 @@ export class NgRxStoreComponent implements OnInit {
     this.counter = store.select('counter');
     this.clock = store.select('clock');
 
-    this.clock = Observable.merge(this.click$, this.seconds$)
+    this.clock = Observable.merge(this.clickObservable$, this.seconds$)
       .startWith(new Date().toString())
       .scan((acc, value, index) => {
         const date = new Date(acc);
