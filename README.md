@@ -13,6 +13,13 @@ npm install @ngrx/core @ngrx/store @ngrx/effects --save
 npm install @ngrx/db @ngrx/router-store @ngrx/store-devtools --save
 npm install ngrx-store-freeze --dev-save
 
+//to make test pass in jenkins
+npm install --save-dev phantomjs phantomjs-prebuilt karma-phantomjs-launcher
+npm install --save-dev intl
+//see https://stackoverflow.com/questions/42513591/syntaxerror-unexpected-token-const-for-testing-es5-js
+// and https://github.com/angular/angular-cli/issues/5763
+// and https://github.com/angular/angular-cli/issues/2013
+
 //to generate new module
 ng g m admin --routing
 ng g c admin

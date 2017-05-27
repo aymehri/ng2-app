@@ -6,6 +6,9 @@ import 'zone.js/dist/sync-test';
 import 'zone.js/dist/jasmine-patch';
 import 'zone.js/dist/async-test';
 import 'zone.js/dist/fake-async-test';
+// these two dependencies are needed by phantomjs to run
+import 'intl';
+import 'intl/locale-data/jsonp/en-US.js';
 import { getTestBed } from '@angular/core/testing';
 import {
   BrowserDynamicTestingModule,
