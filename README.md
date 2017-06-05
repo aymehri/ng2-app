@@ -66,6 +66,11 @@ takeWhile
 switchMapswitchMap
 
 timer fired twice, we fix that with adding share
+
+// Docker
+docker build -t aymehri/node .
+docker run -d -p 8080:4200 aymehri/node
+docker exec -it aymehri/node bash
 ```
 
 ## Development server
